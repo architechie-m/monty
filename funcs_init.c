@@ -4,18 +4,21 @@ funcs_t *createnew(void)
 {
         funcs_t *newNode = NULL;
 
+	/*memory allocation for the funcs_t node*/
         newNode = (funcs_t *)malloc(sizeof(funcs_t));
         if (newNode == NULL)
         {
                 fprintf(stderr, "Error: malloc failed\n");
                 exit(EXIT_FAILURE);
         }
+	/*memory allocation for the instruction_t struct (*n) in the node)*/
 	newNode->n = malloc(sizeof(instruction_t));
 	if (newNode->n == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	/*memory allocation for the char array*/
 	newNode->n->opcode = malloc(sizeof(char) * 5);
 	if (newNode->n->opcode == NULL)
 	{
