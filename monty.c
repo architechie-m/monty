@@ -11,17 +11,16 @@ int main(int argc, char *argv[])
 {
 	FILE *fp;
 	stack_t *head = NULL;
-	instruction_t *funcs[2];
 	unsigned int line_no = 0, int_arg = 0, ops = 0, status = 0;
 	char *line = NULL, *command = NULL, *arg = NULL;
 	size_t size;
+	funcs_t *headptr = NULL;
 
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
-	funcs = malloc(sizeof(instruction_t) * 2);
 	funcs[0]->opcode = malloc(sizeof(char) * 5);
 	strcpy(funcs[0]->opcode, "push");
 	funcs[0]->f = add_dnodeint;
@@ -64,6 +63,5 @@ line_no, command);
 		fprintf(stderr, "Error reading line %d\n", line_no + 1);
 		exit(EXIT_FAILURE);
 	}
-	free(funcs->opcode);
 	return (0);
 }

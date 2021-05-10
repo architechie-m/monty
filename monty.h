@@ -38,9 +38,22 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct funcs_s - doubly linked list representation of an instruction_t struct
+ * @n: instruction_t struct
+ * @prev: points to the previous funcs_t node
+ * @next: points to the next funcs_t node
+ *
+ */
+typedef struct funcs_s
+{
+        instruction_t n;
+        struct stack_s *prev;
+        struct stack_s *next;
+} funcs_t;
 /*Variable definition*/
 
 /*Function prototypes*/
 void add_dnodeint(stack_t **head, unsigned int line_number);
-
+void print_dlistint(stack_t **h, unsigned int line_no);
 #endif /* MONTY_H */
