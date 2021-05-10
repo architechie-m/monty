@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * stack_t - Adds a new node at the beginning of a list
  * @head: pointer to the head node
@@ -7,15 +8,18 @@
  * Return: Address of the new element, or NUll if it failed
  */
 
-stack_t *add_dnodeint(stack_t **head, const int n)
+void add_dnodeint(stack_t **head, unsigned int line_number)
 {
 	stack_t *newNode;
 
 	newNode = (stack_t *)malloc(sizeof(stack_t));
 	if (newNode == NULL)
-		return (NULL);
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 
-	newNode->n = n;
+	newNode->n = line_number;
 	newNode->next = NULL;
 	newNode->prev = NULL;
 
@@ -27,6 +31,4 @@ stack_t *add_dnodeint(stack_t **head, const int n)
 		(*head)->prev = newNode;
 		*head = newNode;
 	}
-
-	return (*head);
 }
