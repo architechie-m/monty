@@ -47,13 +47,18 @@ typedef struct instruction_s
  */
 typedef struct funcs_s
 {
-        instruction_t n;
-        struct stack_s *prev;
-        struct stack_s *next;
+        instruction_t *n;
+        struct funcs_s *prev;
+        struct funcs_s *next;
 } funcs_t;
+
 /*Variable definition*/
+extern stack_t *head;
 
 /*Function prototypes*/
 void add_dnodeint(stack_t **head, unsigned int line_number);
 void print_dlistint(stack_t **h, unsigned int line_no);
+void funcs_init(funcs_t **headptr);
+funcs_t *createnew(void);
+
 #endif /* MONTY_H */
