@@ -40,7 +40,7 @@ typedef struct instruction_s
 
 /**
  * struct funcs_s - doubly linked list representation of an instruction_t struct
- * @n: instruction_t struct
+ * @n: pointer to instruction_t struct
  * @prev: points to the previous funcs_t node
  * @next: points to the next funcs_t node
  *
