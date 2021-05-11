@@ -32,7 +32,7 @@ funcs_t *createnew(void)
 }
 
 /**
- * stack_t - Adds a new node at the beginning of a list
+ * funcs_init - 
  * @head: pointer to the head node
  * @n: value stored in the new node
  *
@@ -41,17 +41,33 @@ funcs_t *createnew(void)
 
 void funcs_init(funcs_t **headptr)
 {
-	funcs_t *new = NULL, *tmp = NULL;
+	char *str[] = {"push", "pall", "swap"};
 
-	/*Create first node*/
+	addnode_end(headptr, str[0], add_dnodeint);
+	addnode_end(headptr, str[1], print_dlistint);
+	addnode_end(headptr, str[2], swap);
+
+
+}
+funcs_t *addnode_end(funcs_t **head, char *str, void (*f)(stack_t **stack, unsigned int line_number))
+{
+	funcs_t *new = NULL, *temp;
 	new = createnew();
-	strcpy(new->n->opcode, "push");
-	new->n->f = add_dnodeint;
-	*headptr = new;
-	tmp = new;
-	new = createnew();
-	strcpy(new->n->opcode, "pall");
-	new->n->f = print_dlistint;
-	tmp->next = new;
-	new->prev = tmp;
+	strcpy(new->n->opcode, str);
+	new->n->f = f;
+	if (*head == NULL)
+	{
+		*head = new;
+	}
+	else
+	{
+		temp = *head;
+		while(temp->next != NULL)
+			temp = temp->next;
+
+		temp->next = new;
+		new->prev = temp;
+		temp = new;
+	}
+	return (temp);
 }
