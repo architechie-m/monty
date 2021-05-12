@@ -19,7 +19,8 @@ void swap(stack_t **head, unsigned int line_number)
 		return;
 	}
 	*head = (*head)->next;
-	(*head)->next->prev = *head;
+	if ((*head)->next != NULL)
+		(*head)->next->prev = *head;
 
 	temp->next = (*head)->next;
 	(*head)->next->prev = temp;
