@@ -56,5 +56,6 @@ void sub_node(stack_t **head, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
 void free_stuff(FILE *fp, stack_t *head, char *line);
 void (*get_func(char *s))(stack_t **head, unsigned int line_number);
-
+int check_opcode(char *command, unsigned int line_number);
+FILE *open_file(char *filename);
 #endif /* MONTY_H */
