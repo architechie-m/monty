@@ -9,10 +9,10 @@
  */
 int main(int argc, char *argv[])
 {
-	FILE *fp;
-	stack_t *head;
-	char *line = NULL, *command = NULL, *arg = NULL, *endptr = NULL;
-	size_t size;
+	FILE *fp = NULL;
+	stack_t *head = NULL;
+	char *line = NULL, *command = NULL, *arg = NULL, *e = NULL;
+	size_t size = 0;
 	unsigned int line_number = 0;
 
 	if (argc != 2)
@@ -29,12 +29,9 @@ int main(int argc, char *argv[])
 	while (getline(&line, &size, fp) != -1)
 	{
 		line_number++;
-		command = strtok(line, " ");
-		arg = strchr(command, '\n');
-		if (arg)
-			*arg = 0;
-		arg = NULL;
+		command = strtok(line, " \n");
 		arg = strtok(NULL, " ");
+		printf("Command: %s, Argument = %s\n", command, arg);
 		if (get_func(command) == NULL)
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, command);
@@ -44,8 +41,8 @@ int main(int argc, char *argv[])
 		if (strcmp(command, "push") == 0)
 		{
 			if (arg)
-				int_arg = strtol(arg, &endptr, 10);
-			if ((arg == NULL || endptr == arg))
+				int_arg = strtol(arg, &e, 10);
+			if (arg == NULL || arg == e)
 			{
 				fprintf(stderr, "L%d: usage: push integer\n", line_number);
 				free_stuff(fp, head, line);
@@ -54,13 +51,13 @@ int main(int argc, char *argv[])
 		}
 		get_func(command)(&head, line_number);
 	}
-/*		workhorse(fp, headptr, line);*/
 	if (!feof(fp))
 	{
 		free_stuff(fp, head, line);
 		fprintf(stderr, "Error reading line %d\n", line_number + 1);
 		exit(EXIT_FAILURE);
 	}
+	printf("Monty's tired\n");
 	free_stuff(fp, head, line);
 	return (0);
 }

@@ -1,11 +1,11 @@
 #include "monty.h"
+/*
 
-/**
  * free_funcs_t - Frees a list
  * @head: Address of the head node to funcs_t
  *
  * Return: Void
- */
+ 
 
 void free_funcs_t(funcs_t *head)
 {
@@ -20,7 +20,7 @@ void free_funcs_t(funcs_t *head)
 		free(current);
 	}
 }
-
+*/
 /**
  * free_stack_t - frees the stack_t
  * @head: head to the stack list
@@ -31,7 +31,7 @@ void free_stack_t(stack_t *head)
 {
 	stack_t *current;
 
-	while (head)
+	while (head != NULL)
 	{
 		current = head;
 		head = head->next;
