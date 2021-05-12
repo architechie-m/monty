@@ -20,7 +20,7 @@ void sub_node(stack_t **head, unsigned int line_number)
 
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n",
+		fprintf(stderr, "L%d: can't sub, stack too short\n",
 			line_number);
 		int_arg = -1;
 		return;
