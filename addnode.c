@@ -2,21 +2,25 @@
 
 void add_node(stack_t **head, unsigned int line_number)
 {
-	int count = 0, sum;
-	while(*head != NULL)
+	stack_t *current = *head;
+	int count = 0, sum = 0;
+
+	while(current != NULL)
 	{
-		*head =(*head)->next;
+		current = current->next;
 		count++;
 	}
 	if (count < 2)
 	{
-		printf("L%d: can't add, stack too short", line_number);
+		printf("L%d: can't add, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	*head = (*head)->next;
-	sum = (*head)->n + (*head)->prev->n;
-	(*head)->n = sum;
-	free((*head)->prev);
-	(*head)->prev = NULL;
+	current = *head;
+	sum = current->n + current->next->n;
+	current->n = sum;
+	pop_stack(head, line_number);
+	pop_stack(head, line_number);
+	push_stack(head, sum);
+	current->prev = NULL;
 
 }
