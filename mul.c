@@ -19,7 +19,7 @@ void multiply(stack_t **head, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		fprintf(stderr, "L%d: can't div, stack too short\n",
+		fprintf(stderr, "L%d: can't mul, stack too short\n",
 			line_number);
 		int_arg = -1;
 		return;
