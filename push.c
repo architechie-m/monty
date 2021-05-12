@@ -1,14 +1,14 @@
 #include "monty.h"
 
 /**
- * stack_t - Adds a new node at the beginning of a list
+ * push_stack - Adds a new node at the beginning of a list
  * @head: pointer to the head node
- * @n: value stored in the new node
+ * @number: value stored in the new node
  *
  * Return: Address of the new element, or NUll if it failed
  */
 
-void push_stack(stack_t **head, unsigned int line_number)
+void push_stack(stack_t **head, unsigned int number)
 {
 	stack_t *newNode;
 
@@ -19,7 +19,7 @@ void push_stack(stack_t **head, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 
-	newNode->n = line_number;
+	newNode->n = number;
 	newNode->next = NULL;
 	newNode->prev = NULL;
 
