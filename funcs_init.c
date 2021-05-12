@@ -1,4 +1,9 @@
 #include "monty.h"
+/**
+ * createnew - creates a new node
+ *
+ * Return: Address of the new node
+ */
 
 funcs_t *createnew(void)
 {
@@ -32,23 +37,33 @@ funcs_t *createnew(void)
 }
 
 /**
- * funcs_init - 
+ * funcs_init - Initiliases a node
  * @head: pointer to the head node
- * @n: value stored in the new node
  *
- * Return: Address of the new element, or NUll if it failed
+ * Return: Void
  */
 
 void funcs_init(funcs_t **headptr)
 {
-	char *str[] = {"push", "pall", "swap"};
+	char *str[] = {"push", "pall", "pint", "pop", "swap", "add"};
 
 	addnode_end(headptr, str[0], add_dnodeint);
 	addnode_end(headptr, str[1], print_dlistint);
-	addnode_end(headptr, str[2], swap);
+	addnode_end(headptr, str[2], pint);
+	addnode_end(headptr, str[3], pop_stack);
+	addnode_end(headptr, str[4], swap);
+	addnode_end(headptr, str[5], add);
 
 
 }
+/**
+ * addnode_end - adds a node at the end of the list
+ * @head: head address of the linked list
+ * @str: opcode contained in the monty file
+ * @f: function pointer to point to addresses of the different opcodes instructions
+ * Return: address of the new node(temp)
+ */
+
 funcs_t *addnode_end(funcs_t **head, char *str, void (*f)(stack_t **stack, unsigned int line_number))
 {
 	funcs_t *new = NULL, *temp;
