@@ -3,7 +3,7 @@
 /**
  * push_stack - Adds a new node at the beginning of a list
  * @head: pointer to the head node
- * @number: value stored in the new node
+ * @line_number: value stored in the new node
  *
  * Return: Address of the new element, or NUll if it failed
  */
@@ -17,7 +17,8 @@ void push_stack(stack_t **head, unsigned int line_number)
 	if (newNode == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
+		int_arg = -1;
+		return;
 	}
 	newNode->n = int_arg;
 	newNode->next = NULL;
@@ -31,5 +32,5 @@ void push_stack(stack_t **head, unsigned int line_number)
 		(*head)->prev = newNode;
 		*head = newNode;
 	}
-	printf("Done\n");
+	int_arg = 0;
 }
