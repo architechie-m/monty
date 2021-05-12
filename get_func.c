@@ -1,5 +1,11 @@
 #include "monty.h"
 
+/**
+ * get_func - returns the function to be called
+ * @s: pointer to char array containing requested function
+ *
+ * Return: void function pointer
+ */
 void (*get_func(char *s))(stack_t **head, unsigned int line_number)
 {
 	instruction_t ops[] = {
