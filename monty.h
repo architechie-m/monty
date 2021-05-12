@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <limits.h>
 
 /*Struct definitions*/
 /**
@@ -53,7 +54,11 @@ typedef struct funcs_s
 } funcs_t;
 
 /*Variable definition*/
-extern stack_t *head;
+struct data {
+	stack_t *head;
+	unsigned int line_number;
+};
+extern struct data ourdata;
 
 /*Function prototypes*/
 void push_stack(stack_t **head, unsigned int line_number);
@@ -70,5 +75,9 @@ void add_node(stack_t **head, unsigned int line_number);
 void sub_node(stack_t **head, unsigned int line_number);
 void print_funcst(funcs_t **h, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
+void free_stuff(FILE *fp, funcs_t *headptr, char *line);
+void workhorse(FILE *fp, funcs_t *headptr, char *line);
+void push_handler(funcs_t *headptr, funcs_t *tmp, char *command, char *endptr,
+                  char *arg, char *line, FILE *fp);
 
 #endif /* MONTY_H */
