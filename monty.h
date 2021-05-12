@@ -56,7 +56,7 @@ typedef struct funcs_s
 extern stack_t *head;
 
 /*Function prototypes*/
-void add_dnodeint(stack_t **head, unsigned int line_number);
+void push_stack(stack_t **head, unsigned int line_number);
 void print_dlistint(stack_t **h, unsigned int line_no);
 void swap(stack_t **head, unsigned int line_number);
 void funcs_init(funcs_t **headptr);
@@ -69,4 +69,6 @@ void pint(stack_t **head, unsigned int line_number);
 void add_node(stack_t **head, unsigned int line_number);
 void sub_node(stack_t **head, unsigned int line_number);
 void print_funcst(funcs_t **h, unsigned int line_number);
+void nop(stack_t **head, unsigned int line_number);
+
 #endif /* MONTY_H */
