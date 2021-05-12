@@ -10,6 +10,7 @@
 void swap(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp = *head;
+	int temp1 = 0, temp2 = 0;
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 	{
@@ -18,13 +19,12 @@ void swap(stack_t **head, unsigned int line_number)
 		int_arg = -1;
 		return;
 	}
-	*head = (*head)->next;
-	if ((*head)->next != NULL)
-		(*head)->next->prev = *head;
-
-	temp->next = (*head)->next;
-	(*head)->next->prev = temp;
-	(*head)->next = temp;
-	temp->prev = *head;
-	(*head)->prev = NULL;
+	temp1 = temp->n;
+	temp2 = temp->next->n;
+	pop_stack(head, line_number);
+	pop_stack(head, line_number);
+	int_arg = temp1;
+	push_stack(head, line_number);
+	int_arg = temp2;
+	push_stack(head, line_number);
 }
