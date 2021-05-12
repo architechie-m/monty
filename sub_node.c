@@ -29,6 +29,6 @@ void sub_node(stack_t **head, unsigned int line_number)
 	sub = current->next->n - current->n;
 	pop_stack(head, line_number);
 	pop_stack(head, line_number);
-	int_arg = sub
+	int_arg = sub;
 	push_stack(head, line_number);
 }
