@@ -9,6 +9,7 @@ stack_t *head = NULL;
  *
  * Return: Always 0
  */
+
 int main(int argc, char *argv[])
 {
 	FILE *fp;
@@ -30,8 +31,10 @@ int main(int argc, char *argv[])
 	if (fp == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		free_funcs_t(headptr);
 		exit(EXIT_FAILURE);
 	}
+
 	while (getline(&line, &size, fp) != -1)
 	{
 		line_no++;
@@ -57,14 +60,31 @@ int main(int argc, char *argv[])
 		{
 			fprintf(stderr, "L%d: unknown instruction %s\n",
 line_no, command);
+
+			fclose(fp);
+			free_funcs_t(headptr);
+			if (head)
+				free_stack_t(head);
+			free(line);
 			exit(EXIT_FAILURE);
 		}
 		status = 0;
+		free(line);
+		line = NULL;
 	}
 	if (!feof(fp))
 	{
+		fclose(fp);
+		free_funcs_t(headptr);
+		if (head)
+			free_stack_t(head);
 		fprintf(stderr, "Error reading line %d\n", line_no + 1);
+		free(line);
 		exit(EXIT_FAILURE);
 	}
+	fclose(fp);
+	free_funcs_t(headptr);
+	free_stack_t(head);
+	free(line);
 	return (0);
 }

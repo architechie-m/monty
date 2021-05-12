@@ -58,11 +58,14 @@ extern stack_t *head;
 /*Function prototypes*/
 void add_dnodeint(stack_t **head, unsigned int line_number);
 void print_dlistint(stack_t **h, unsigned int line_no);
-void swap(stack_t **head, unsigned int n);
+void swap(stack_t **head, unsigned int line_number);
 void funcs_init(funcs_t **headptr);
 funcs_t *createnew(void);
 void free_funcs_t(funcs_t *head);
 void free_stack_t(stack_t *head);
 funcs_t *addnode_end(funcs_t **head, char *str, void (*)(stack_t **, unsigned int));
-
+void pop_stack(stack_t **head, unsigned int line_number);
+void pint(stack_t **head, unsigned int line_number);
+void add_node(stack_t **head, unsigned int line_number);
+void sub_node(stack_t **head, unsigned int line_number);
 #endif /* MONTY_H */
