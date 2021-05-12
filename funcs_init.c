@@ -1,21 +1,21 @@
 #include "monty.h"
+
 /**
  * createnew - creates a new node
  *
  * Return: Address of the new node
  */
-
 funcs_t *createnew(void)
 {
-        funcs_t *newNode = NULL;
+	funcs_t *newNode = NULL;
 
 	/*memory allocation for the funcs_t node*/
-        newNode = (funcs_t *)malloc(sizeof(funcs_t));
-        if (newNode == NULL)
-        {
-                fprintf(stderr, "Error: malloc failed\n");
-                exit(EXIT_FAILURE);
-        }
+	newNode = (funcs_t *)malloc(sizeof(funcs_t));
+	if (newNode == NULL)
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	/*memory allocation for the instruction_t struct (*n) in the node)*/
 	newNode->n = malloc(sizeof(instruction_t));
 	if (newNode->n == NULL)
@@ -30,19 +30,18 @@ funcs_t *createnew(void)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-        newNode->next = NULL;
-        newNode->prev = NULL;
+	newNode->next = NULL;
+	newNode->prev = NULL;
 
 	return (newNode);
 }
 
 /**
  * funcs_init - Initiliases a node
- * @head: pointer to the head node
+ * @headptr: pointer to the head node
  *
  * Return: Void
  */
-
 void funcs_init(funcs_t **headptr)
 {
 	addnode_end(headptr, "push", push_stack);
@@ -54,17 +53,20 @@ void funcs_init(funcs_t **headptr)
 	addnode_end(headptr, "sub", sub_node);
 	addnode_end(headptr, "nop", nop);
 }
+
 /**
  * addnode_end - adds a node at the end of the list
- * @head: head address of the linked list
+ * @headptr2: head address of the linked list
  * @str: opcode contained in the monty file
- * @f: function pointer to point to addresses of the different opcodes instructions
+ * @f: function pointer to point to addresses of different opcode instructions
+ *
  * Return: void
  */
-
-void addnode_end(funcs_t **headptr2, char *str, void (*f)(stack_t **stack, unsigned int line_number))
+void addnode_end(funcs_t **headptr2,
+char *str, void (*f)(stack_t **stack, unsigned int line_number))
 {
 	funcs_t *new = NULL, *temp;
+
 	new = createnew();
 	strcpy(new->n->opcode, str);
 	new->n->f = f;
@@ -75,7 +77,7 @@ void addnode_end(funcs_t **headptr2, char *str, void (*f)(stack_t **stack, unsig
 	else
 	{
 		temp = *headptr2;
-		while(temp->next != NULL)
+		while (temp->next != NULL)
 			temp = temp->next;
 
 		temp->next = new;
