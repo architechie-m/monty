@@ -17,6 +17,9 @@ void (*get_func(char *s))(stack_t **head, unsigned int line_number)
 		{"add", add_node},
 		{"nop", nop},
 		{"sub", sub_node},
+		{"div", divide},
+		{"mul", multiply},
+		{"mod", modulus},
 		{NULL, NULL}
 	};
 	int i = 0;
