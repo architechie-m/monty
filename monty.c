@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	funcs_init(&headptr);
+	print_funcst(&headptr, 0);
 	printf("funcs_t initialized\n");
 	tmp = headptr;
 	printf("Opening file...\n");
@@ -40,7 +41,7 @@ int main(int argc, char *argv[])
 		line_no++;
 		command = strtok(line, " ");
 		arg = strchr(command, '\n');
-		if (arg)
+ 		if (arg)
 			*arg = 0;
 		arg = strtok(NULL, " ");
 		printf("Command: $%s$, Argument: %s\n", command, arg);
@@ -51,6 +52,7 @@ int main(int argc, char *argv[])
 				if (arg)
 					int_arg = atoi(arg);
 				tmp->n->f(&head, int_arg);
+				tmp = headptr;
 				status = 1;
 				break;
 			}

@@ -61,22 +61,22 @@ void funcs_init(funcs_t **headptr)
  * @head: head address of the linked list
  * @str: opcode contained in the monty file
  * @f: function pointer to point to addresses of the different opcodes instructions
- * Return: address of the new node(temp)
+ * Return: void
  */
 
-funcs_t *addnode_end(funcs_t **head, char *str, void (*f)(stack_t **stack, unsigned int line_number))
+void addnode_end(funcs_t **headptr2, char *str, void (*f)(stack_t **stack, unsigned int line_number))
 {
 	funcs_t *new = NULL, *temp;
 	new = createnew();
 	strcpy(new->n->opcode, str);
 	new->n->f = f;
-	if (*head == NULL)
+	if (*headptr2 == NULL)
 	{
-		*head = new;
+		*headptr2 = new;
 	}
 	else
 	{
-		temp = *head;
+		temp = *headptr2;
 		while(temp->next != NULL)
 			temp = temp->next;
 
@@ -84,5 +84,4 @@ funcs_t *addnode_end(funcs_t **head, char *str, void (*f)(stack_t **stack, unsig
 		new->prev = temp;
 		temp = new;
 	}
-	return (temp);
 }
