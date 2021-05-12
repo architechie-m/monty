@@ -13,8 +13,9 @@ void pop_stack(stack_t **head, unsigned int line_number)
 
 	if (*head == NULL || head == NULL)
 	{
-		printf("L%d: can't pop an empty stack\n", line_number);
-		ourdata.line_number = INT_MAX;
+		fprintf(stderr, "L%d: can't add, stack too short\n",
+			line_number);
+		int_arg = -1;
 		return;
 	}
 

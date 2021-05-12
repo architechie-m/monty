@@ -20,9 +20,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -35,49 +35,27 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/**
- * struct funcs_s - doubly linked list representation of an instruction_t struct
- * @n: pointer to instruction_t struct
- * @prev: points to the previous funcs_t node
- * @next: points to the next funcs_t node
- *
- */
-typedef struct funcs_s
-{
-        instruction_t *n;
-        struct funcs_s *prev;
-        struct funcs_s *next;
-} funcs_t;
 
 /*Variable definition*/
-struct data {
-	stack_t *head;
-	unsigned int line_number;
-};
-extern struct data ourdata;
+extern int int_arg;
+int int_arg;
 
 /*Function prototypes*/
 void push_stack(stack_t **head, unsigned int line_number);
-void print_dlistint(stack_t **h, unsigned int line_no);
+void pall_stack(stack_t **h, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
-void funcs_init(funcs_t **headptr);
-funcs_t *createnew(void);
-void free_funcs_t(funcs_t *head);
 void free_stack_t(stack_t *head);
-void addnode_end(funcs_t **head, char *str, void (*)(stack_t **, unsigned int));
 void pop_stack(stack_t **head, unsigned int line_number);
 void pint(stack_t **head, unsigned int line_number);
 void add_node(stack_t **head, unsigned int line_number);
 void sub_node(stack_t **head, unsigned int line_number);
-void print_funcst(funcs_t **h, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
-void free_stuff(FILE *fp, funcs_t *headptr, char *line);
-void workhorse(FILE *fp, funcs_t *headptr, char *line);
-void push_handler(funcs_t *headptr, funcs_t *tmp, char *command, char *endptr,
-                  char *arg, char *line, FILE *fp);
-
+void free_stuff(FILE *fp, stack_t *head, char *line);
+void (*get_func(char *s))(stack_t **head, unsigned int line_number);
+int check_opcode(char *command, unsigned int line_number);
+FILE *open_file(char *filename);
 #endif /* MONTY_H */

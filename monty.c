@@ -1,7 +1,5 @@
 #include "monty.h"
 
-struct data ourdata = {NULL, 0};
-
 /**
  * main - interpreter for monty byte code
  * @argc: number of arguments to main
@@ -11,34 +9,39 @@ struct data ourdata = {NULL, 0};
  */
 int main(int argc, char *argv[])
 {
-	FILE *fp;
-	char *line = NULL;
-	size_t size;
-	funcs_t *headptr = NULL;
+	FILE *fp = NULL;
+	stack_t *head = NULL;
+	char *line = NULL, *command = NULL, *arg = NULL, *e = NULL;
+	size_t size = 0;
+	unsigned int line_number = 0;
 
 	if (argc != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
-	funcs_init(&headptr);
-	print_funcst(&headptr, 0);
-	fp = fopen(argv[1], "r");
-	if (fp == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		free_funcs_t(headptr);
-		exit(EXIT_FAILURE);
-	}
+		fprintf(stderr, "USAGE: monty file\n"), exit(EXIT_FAILURE);
+	fp = open_file(argv[1]);
 	while (getline(&line, &size, fp) != -1)
-		workhorse(fp, headptr, line);
+	{
+		line_number++;
+		command = strtok(line, " \n"), arg = strtok(NULL, " ");
+		if (strcmp(command, "push") == 0)
+		{
+			if (arg)
+				int_arg = strtol(arg, &e, 10);
+			if (arg == NULL || arg == e)
+			{
+				fprintf(stderr, "L%d: usage: push integer\n", line_number);
+				free_stuff(fp, head, line), exit(EXIT_FAILURE);
+			}
+		}
+		if (check_opcode(command, line_number) == 0)
+			get_func(command)(&head, line_number);
+		if (int_arg == -1)
+			free_stuff(fp, head, line), exit(EXIT_FAILURE);
+	}
 	if (!feof(fp))
 	{
-		free_stuff(fp, headptr, line);
-		fprintf(stderr, "Error reading line %d\n",
-ourdata.line_number + 1);
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "Error reading line %d\n", line_number + 1);
+		free_stuff(fp, head, line), exit(EXIT_FAILURE);
 	}
-	free_stuff(fp, headptr, line);
+	free_stuff(fp, head, line);
 	return (0);
 }
