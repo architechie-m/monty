@@ -8,7 +8,7 @@
  * Return: Address of the new element, or NUll if it failed
  */
 
-void add_dnodeint(stack_t **head, unsigned int line_number)
+void push_stack(stack_t **head, unsigned int line_number)
 {
 	stack_t *newNode;
 
