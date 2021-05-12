@@ -20,6 +20,10 @@ void (*get_func(char *s))(stack_t **head, unsigned int line_number)
 		{"div", divide},
 		{"mul", multiply},
 		{"mod", modulus},
+		{"pchar", pchar_stack},
+		{"pstr", pstr_stack},
+		{"rotl", rotl_stack},
+		{"rotr", rotr_stack},
 		{NULL, NULL}
 	};
 	int i = 0;
