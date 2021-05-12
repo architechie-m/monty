@@ -1,14 +1,21 @@
 #include "monty.h"
 
-
+/**
+ * pop_stack - remove an element from the top of the stack
+ * @head: double pointer to the head node of the stack
+ * @line_number: line number of instruction in the file being read
+ *
+ * Return: no return value (void)
+ */
 void pop_stack(stack_t **head, unsigned int line_number)
 {
 	stack_t *temp;
 
-	if(*head == NULL || head == NULL)
+	if (*head == NULL || head == NULL)
 	{
-		printf("L%d: can't pop an empty stack", line_number);
-		exit(EXIT_FAILURE);
+		printf("L%d: can't pop an empty stack\n", line_number);
+		ourdata.line_number = INT_MAX;
+		return;
 	}
 
 	temp = *head;
