@@ -61,5 +61,9 @@ FILE *open_file(char *filename);
 void divide(stack_t **head, unsigned int line_number);
 void multiply(stack_t **head, unsigned int line_number);
 void modulus(stack_t **head, unsigned int line_number);
+void pchar_stack(stack_t **head, unsigned int line_number);
+void pstr_stack(stack_t **head, unsigned int line_number);
+void rotl_stack(stack_t **head, unsigned int line_number);
+void rotr_stack(stack_t **head, unsigned int line_number);
 
 #endif /* MONTY_H */
