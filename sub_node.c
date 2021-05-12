@@ -1,6 +1,12 @@
 #include "monty.h"
 
-
+/**
+ * sub_node - subtracts the top element from the 2nd element in the stack
+ * @head: double pointer to head node of stack
+ * @line_number: line number of instruction in the file being read
+ *
+ * Return: no return value (void)
+ */
 void sub_node(stack_t **head, unsigned int line_number)
 {
 	stack_t *current = *head;
@@ -15,7 +21,8 @@ void sub_node(stack_t **head, unsigned int line_number)
 	if (count < 2)
 	{
 		printf("L%d: can't sub, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
+		ourdata.line_number = INT_MAX;
+		return;
 	}
 	current = *head;
 	sub = current->next->n - current->n;
