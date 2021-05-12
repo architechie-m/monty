@@ -19,15 +19,15 @@ void add_node(stack_t **head, unsigned int line_number)
 	}
 	if (count < 2)
 	{
-		printf("L%d: can't add, stack too short\n", line_number);
-		exit(EXIT_FAILURE);
+		fprintf(stderr, "L%d: can't add, stack too short\n",
+			line_number);
+		int_arg = -1;
+		return;
 	}
 	current = *head;
 	sum = current->n + current->next->n;
-	current->n = sum;
 	pop_stack(head, line_number);
 	pop_stack(head, line_number);
+	int_arg = sum;
 	push_stack(head, sum);
-	current->prev = NULL;
-
 }
