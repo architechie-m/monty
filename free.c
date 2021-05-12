@@ -1,7 +1,7 @@
 #include "monty.h"
 
 /**
- * free_dlistint - Frees a list
+ * free_funcs_t - Frees a list
  * @head: Address of the head node to funcs_t
  *
  * Return: Void
@@ -17,9 +17,8 @@ void free_funcs_t(funcs_t *head)
 		head = head->next;
 		free(current->n->opcode);
 		free(current->n);
-		free (current);
+		free(current);
 	}
-	printf("funcs_t freed successfully");
 }
 
 /**
@@ -32,11 +31,27 @@ void free_stack_t(stack_t *head)
 {
 	stack_t *current;
 
-        while (head)
-        {
-                current = head;
-                head = head->next;
-                free (current);
-        }
-	printf("stack_s freed successfully");
+	while (head)
+	{
+		current = head;
+		head = head->next;
+		free(current);
+	}
+}
+
+/**
+ * free_stuff - frees all relevant memory blocks
+ * @fp: pointer to a file stream
+ * @headptr: pointer to funcs_t head node
+ * @line: pointer to char array
+ *
+ * Return: no return value (void)
+ */
+void free_stuff(FILE *fp, funcs_t *headptr, char *line)
+{
+	fclose(fp);
+	free_funcs_t(headptr);
+	if (ourdata.head)
+		free_stack_t(ourdata.head);
+	free(line);
 }
