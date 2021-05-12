@@ -2,7 +2,7 @@
 
 void add_node(stack_t **head, unsigned int line_number)
 {
-	int count = 0;
+	int count = 0, sum;
 	while(*head != NULL)
 	{
 		*head =(*head)->next;
@@ -15,6 +15,7 @@ void add_node(stack_t **head, unsigned int line_number)
 	}
 	*head = (*head)->next;
 	sum = (*head)->n + (*head)->prev->n;
+	(*head)->n = sum;
 	free((*head)->prev);
 	(*head)->prev = NULL;
 

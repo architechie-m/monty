@@ -45,15 +45,15 @@ funcs_t *createnew(void)
 
 void funcs_init(funcs_t **headptr)
 {
-	char *str[] = {"push", "pall", "pint", "pop", "swap", "add"};
+	char *str[] = {"push", "pall", "pint", "pop", "swap", "add", "sub"};
 
 	addnode_end(headptr, str[0], add_dnodeint);
 	addnode_end(headptr, str[1], print_dlistint);
 	addnode_end(headptr, str[2], pint);
 	addnode_end(headptr, str[3], pop_stack);
 	addnode_end(headptr, str[4], swap);
-	addnode_end(headptr, str[5], add);
-
+	addnode_end(headptr, str[5], add_node);
+	addnode_end(headptr, str[6], sub_node);
 
 }
 /**
