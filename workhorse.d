@@ -55,7 +55,8 @@ void workhorse(FILE *fp, funcs_t *headptr, char *line)
 	arg = strtok(NULL, " ");
 	while (tmp != NULL)
 	{
-		if (strcmp(command, tmp->n->opcode) == 0)
+		get_funcs(&(ourdata.head), ourdata.line_number);
+/*		if (strcmp(command, tmp->n->opcode) == 0)
 		{
 			if (strcmp(command, "push") == 0)
 			{
@@ -74,6 +75,7 @@ void workhorse(FILE *fp, funcs_t *headptr, char *line)
 			break;
 		}
 		tmp =  tmp->next;
+*/
 	}
 	if (status == 0)
 	{

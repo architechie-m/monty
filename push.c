@@ -8,9 +8,10 @@
  * Return: Address of the new element, or NUll if it failed
  */
 
-void push_stack(stack_t **head, unsigned int number)
+void push_stack(stack_t **head, unsigned int line_number)
 {
 	stack_t *newNode;
+	(void)line_number;
 
 	newNode = (stack_t *)malloc(sizeof(stack_t));
 	if (newNode == NULL)
@@ -19,7 +20,7 @@ void push_stack(stack_t **head, unsigned int number)
 		exit(EXIT_FAILURE);
 	}
 
-	newNode->n = number;
+	newNode->n = int_arg;
 	newNode->next = NULL;
 	newNode->prev = NULL;
 

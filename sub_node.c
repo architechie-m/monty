@@ -21,8 +21,7 @@ void sub_node(stack_t **head, unsigned int line_number)
 	if (count < 2)
 	{
 		printf("L%d: can't sub, stack too short\n", line_number);
-		ourdata.line_number = INT_MAX;
-		return;
+		exit(EXIT_FAILURE);
 	}
 	current = *head;
 	sub = current->next->n - current->n;

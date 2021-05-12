@@ -54,15 +54,12 @@ typedef struct funcs_s
 } funcs_t;
 
 /*Variable definition*/
-struct data {
-	stack_t *head;
-	unsigned int line_number;
-};
-extern struct data ourdata;
+extern int int_arg;
+int int_arg;
 
 /*Function prototypes*/
 void push_stack(stack_t **head, unsigned int line_number);
-void print_dlistint(stack_t **h, unsigned int line_no);
+void pall_stack(stack_t **h, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void funcs_init(funcs_t **headptr);
 funcs_t *createnew(void);
@@ -75,9 +72,10 @@ void add_node(stack_t **head, unsigned int line_number);
 void sub_node(stack_t **head, unsigned int line_number);
 void print_funcst(funcs_t **h, unsigned int line_number);
 void nop(stack_t **head, unsigned int line_number);
-void free_stuff(FILE *fp, funcs_t *headptr, char *line);
+void free_stuff(FILE *fp, stack_t *head, char *line);
 void workhorse(FILE *fp, funcs_t *headptr, char *line);
 void push_handler(funcs_t *headptr, funcs_t *tmp, char *command, char *endptr,
                   char *arg, char *line, FILE *fp);
+void (*get_func(char *s))(stack_t **head, unsigned int line_number);
 
 #endif /* MONTY_H */

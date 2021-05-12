@@ -14,8 +14,7 @@ void pop_stack(stack_t **head, unsigned int line_number)
 	if (*head == NULL || head == NULL)
 	{
 		printf("L%d: can't pop an empty stack\n", line_number);
-		ourdata.line_number = INT_MAX;
-		return;
+		exit(EXIT_FAILURE);
 	}
 
 	temp = *head;

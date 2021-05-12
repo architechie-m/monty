@@ -20,8 +20,7 @@ void add_node(stack_t **head, unsigned int line_number)
 	if (count < 2)
 	{
 		printf("L%d: can't add, stack too short\n", line_number);
-		ourdata.line_number = INT_MAX;
-		return;
+		exit(EXIT_FAILURE);
 	}
 	current = *head;
 	sum = current->n + current->next->n;

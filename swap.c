@@ -14,8 +14,7 @@ void swap(stack_t **head, unsigned int line_number)
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 	{
 		printf("L%d: can't swap, stack too short\n", line_number);
-		ourdata.line_number = INT_MAX;
-		return;
+		exit(EXIT_FAILURE);
 	}
 	*head = (*head)->next;
 	(*head)->next->prev = *head;

@@ -47,11 +47,10 @@ void free_stack_t(stack_t *head)
  *
  * Return: no return value (void)
  */
-void free_stuff(FILE *fp, funcs_t *headptr, char *line)
+void free_stuff(FILE *fp, stack_t *head, char *line)
 {
 	fclose(fp);
-	free_funcs_t(headptr);
-	if (ourdata.head)
-		free_stack_t(ourdata.head);
+	if (head)
+		free_stack_t(head);
 	free(line);
 }

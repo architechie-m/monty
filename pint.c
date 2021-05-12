@@ -12,8 +12,7 @@ void pint(stack_t **head, unsigned int line_number)
 	if (head == NULL || *head == NULL)
 	{
 		printf("L%d: can't pint, stack empty\n", line_number);
-		ourdata.line_number = INT_MAX;
-		return;
+		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*head)->n);
 }
