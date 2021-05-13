@@ -2,7 +2,7 @@
 
 /**
  * pall_stack - prints all elements in a list
- * @h: double pointer to the head node
+ * @head: double pointer to the head node
  * @line_number: line number of instruction in the file
  *
  * Return: returns the number of elements in a node
