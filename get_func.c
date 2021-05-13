@@ -9,7 +9,7 @@
 void (*get_func(char *s))(stack_t **head, unsigned int line_number)
 {
 	instruction_t ops[] = {
-		{"push", push_stack},
+		{"push", check_staqueue},
 		{"pall", pall_stack},
 		{"pint", pint},
 		{"pop", pop_stack},
