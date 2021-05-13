@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 	while (getline(&line, &size, fp) != -1)
 	{
 		line_number++, command = strtok(line, " \n"), arg = strtok(NULL, " ");
-		if (strcmp(line, "\n") == 0)
+		if (strcmp(line, "\n") == 0 || strncmp(command, "#", 1) == 0)
 			continue;
 		if (strcmp(command, "push") == 0)
 			push_handler(arg, line, fp, head, line_number),
