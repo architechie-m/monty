@@ -30,13 +30,6 @@ void pstr_stack(stack_t **head, unsigned int line_number)
 			if (temp->next->n == 0)
 				printf("\n");
 		}
-		else
-		{
-			fprintf(stderr, "L%d: can't pchar, value out of range\n"
-				, line_number);
-			int_arg = -1;
-			return;
-		}
 		temp = temp->next;
 	}
 	printf("\n");
