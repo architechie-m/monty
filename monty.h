@@ -67,5 +67,5 @@ void pchar_stack(stack_t **head, unsigned int line_number);
 void pstr_stack(stack_t **head, unsigned int line_number);
 void rotl_stack(stack_t **head, unsigned int line_number);
 void rotr_stack(stack_t **head, unsigned int line_number);
-
+void add_q(stack_t **head, unsigned int line_number);
 #endif /* MONTY_H */
