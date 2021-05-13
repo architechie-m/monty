@@ -7,6 +7,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <limits.h>
+#include <ctype.h>
 
 /*Struct definitions*/
 /**
