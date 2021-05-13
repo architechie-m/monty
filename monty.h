@@ -69,6 +69,7 @@ void pstr_stack(stack_t **head, unsigned int line_number);
 void rotl_stack(stack_t **head, unsigned int line_number);
 void rotr_stack(stack_t **head, unsigned int line_number);
 void check_staqueue(stack_t **head, unsigned int line_number);
-void push_handler(char *arg, char *line, FILE *fp, stack_t *head, unsigned int line_number);
+void push_handler(char *arg, char *line, FILE *fp, stack_t *head,
+		  unsigned int line_number);
 
 #endif /* MONTY_H */
