@@ -48,7 +48,7 @@ int int_arg;
 /*Function prototypes*/
 void push_stack(stack_t **head, unsigned int line_number);
 void push_queue(stack_t **head, unsigned int line_number);
-void pall_stack(stack_t **h, unsigned int line_number);
+void pall_stack(stack_t **head, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void free_stack_t(stack_t *head);
 void pop_stack(stack_t **head, unsigned int line_number);
