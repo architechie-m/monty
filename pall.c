@@ -8,11 +8,13 @@
  * Return: returns the number of elements in a node
  */
 
-void pall_stack(stack_t **h, unsigned int line_number)
+void pall_stack(stack_t **head, unsigned int line_number)
 {
-	stack_t *current = *h;
+	stack_t *current = *head;
 	(void)line_number;
 
+	if (head == NULL || (*head) == NULL)
+		return;
 	while (current != NULL)
 	{
 		printf("%d\n", current->n);
