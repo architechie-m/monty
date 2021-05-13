@@ -21,10 +21,11 @@ void pstr_stack(stack_t **head, unsigned int line_number)
 	{
 		if (temp->n >= 1 && temp->n <= 127)
 		{
-			if (isprint(temp->n) != 0)
+			if (isprint(temp->n))
 				printf("%c", temp->n);
 			else
 				my_print(temp->n);
+		}
 		else
 			break;
 		temp = temp->next;

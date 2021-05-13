@@ -15,11 +15,11 @@ void my_print(int ch)
 			"EM", "SUB", "ESC", "FS", "GS", "RS", "US", "DEL"};
 	int i = 0;
 
-	for (i = 0; i <= 31; i++)
+	for (i = 0; i <= 33; i++)
 	{
 		if (ch == chrs[i])
 		{
-			printf("%s\n", pr[i]);
+			printf("%s", pr[i]);
 			break;
 		}
 	}
@@ -51,5 +51,6 @@ void pchar_stack(stack_t **head, unsigned int line_number)
 	if ((*head)->n <= 31 || (*head)->n == 127)
 		my_print((*head)->n);
 	else
-		printf("%c\n", (*head)->n);
+		printf("%c", (*head)->n);
+	printf("\n");
 }
