@@ -9,7 +9,7 @@
  */
 void pchar_stack(stack_t **head, unsigned int line_number)
 {
-	if (head == NULL || *(head) == NULL)
+	if (head == NULL || (*head) == NULL)
 	{
 		fprintf(stderr, "L%d: can't pchar, stack empty\n",
 			line_number);
@@ -23,5 +23,8 @@ void pchar_stack(stack_t **head, unsigned int line_number)
 		int_arg = -1;
 		return;
 	}
-	printf("%c\n", (*head)->n);
+	if ((*head)->n <= 31 || (*head)->n == 127)
+		printf("%02x\n", (*head)->n);
+	else
+		printf("%c\n", (*head)->n);
 }
