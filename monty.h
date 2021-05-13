@@ -47,6 +47,7 @@ int int_arg;
 
 /*Function prototypes*/
 void push_stack(stack_t **head, unsigned int line_number);
+void push_queue(stack_t **head, unsigned int line_number);
 void pall_stack(stack_t **h, unsigned int line_number);
 void swap(stack_t **head, unsigned int line_number);
 void free_stack_t(stack_t *head);
@@ -67,5 +68,7 @@ void pchar_stack(stack_t **head, unsigned int line_number);
 void pstr_stack(stack_t **head, unsigned int line_number);
 void rotl_stack(stack_t **head, unsigned int line_number);
 void rotr_stack(stack_t **head, unsigned int line_number);
-void add_q(stack_t **head, unsigned int line_number);
+void check_staqueue(stack_t **head, unsigned int line_number);
+void push_handler(char *arg, char *line, FILE *fp, stack_t *head, unsigned int line_number);
+
 #endif /* MONTY_H */
