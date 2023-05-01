@@ -6,8 +6,6 @@ This is is a basic `monty` `bytecode interpreter` that executes the instructions
 A language interpreter made in the C programming language to manage stacks and queues (LIFO and FIFO). The aim is to interpret Monty bytecodes files. [Monty](http://montyscoconut.github.io/) is a language that aims to close the gap between scripting and programming languages.
 
 ## Requirements
-<img src="https://alx-apply.hbtn.io/brand_alx/share_image_2019.jpg" width="300" height="100" />
-
 - Allowed editors: `vi`, `vim`, `emacs`.
 - Compilation is done on **Ubuntu 20.04 LTS** using `gcc`, using the options `$ gcc -Wall -Werror -Wextra -pedantic -std=c89 *.c -o monty9.`
 - Coding Style;
