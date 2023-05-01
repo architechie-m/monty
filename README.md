@@ -1,6 +1,6 @@
 # C - Stacks, Queues - LIFO, FIFO
 ## Synopsis
-This is a ***ALX Holberton School*** project, it is a basic `monty` `bytecode interpreter` that executes the instructions using stacks or queues implemented with doubly linked lists. This project is to be done in teams of two people.
+This is is a basic `monty` `bytecode interpreter` that executes the instructions using stacks or queues implemented with doubly linked lists.
 
 ## Monty Interpreter
 A language interpreter made in the C programming language to manage stacks and queues (LIFO and FIFO). The aim is to interpret Monty bytecodes files. [Monty](http://montyscoconut.github.io/) is a language that aims to close the gap between scripting and programming languages.
